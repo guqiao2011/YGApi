@@ -1,6 +1,7 @@
 package com.guqiao.api.test;
 
 import com.google.gson.JsonObject;
+import com.guqiao.api.common.CommonService;
 import com.guqiao.api.gank.GankService;
 import com.guqiao.api.gank.model.type.Category;
 import com.guqiao.api.gank.model.type.XdSubCate;
@@ -14,8 +15,8 @@ import io.reactivex.functions.Consumer;
  */
 public class GankTest {
     public static void main(String[] args) {
-        RetrofitServiceManager.getInstance().create(GankService.GANK_BASE_URL, GankService.class)
-                .getRandomGankInfo(Category.ANDROID, 9).subscribe(new Consumer<JsonObject>() {
+        RetrofitServiceManager.getInstance().create(CommonService.class)
+                .queryKuaidi("shentong", "12121212").subscribe(new Consumer<JsonObject>() {
             @Override
             public void accept(JsonObject jsonObject) throws Exception {
                 System.out.println("accept--->" + jsonObject);

@@ -1,5 +1,7 @@
 package com.guqiao.api.net;
 
+import com.guqiao.api.conf.Constant;
+import com.guqiao.api.net.retrofiturlmanager.RetrofitUrlManager;
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
@@ -20,7 +22,7 @@ public class RetrofitServiceManager {
     private final String DEFAULT_BASE_URL = "http://www.test.com/";
 
     private RetrofitServiceManager() {
-
+        RetrofitUrlManager.getInstance().putDomain(Constant.KUAI_KEY, Constant.KUAIDI_100_BASE_URL);
     }
 
     /**
